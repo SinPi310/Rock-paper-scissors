@@ -1,4 +1,9 @@
-#include <stdlib.h> #include <stdio.h> #include <string.h> #include <time.h> #include "LCD1602.h" #include "tsi.h"
+#include <stdlib.h> 
+#include <stdio.h> 
+#include <string.h> 
+#include <time.h> 
+#include "LCD1602.h" 
+#include "tsi.h"
 
 int main(void) { const int ROCK = 0; const int PAPER = 1; const int SCISSOR = 2;
 

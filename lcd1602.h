@@ -1,15 +1,3 @@
-/******************************************************************************
- * This file is a part of the SM2 Tutorial (C).                               *                                                 *
- ******************************************************************************/
-
-/**
- * @file lcd1602.h
- * @author Koryciak
- * @date Sep 2020
- * @brief File containing enums, structures and declarations for LCD 2x16.
- * @ver 0.1
- */
-
 #ifndef LCD1602_H
 #define LCD1602_H
 

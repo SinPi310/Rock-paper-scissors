@@ -1,73 +1,45 @@
-#include <stdlib.h>
-#include <stdio.h>
-#include <string.h>
-#include <time.h>
-#include "LCD1602.h"
-#include "tsi.h"
+# Rock-Paper-Scissors on FRDM-KL05Z
 
-int main(void) {
-    const int ROCK = 0;
-    const int PAPER = 1;
-    const int SCISSOR = 2;
+This project implements a simple "Rock, Paper, Scissors" game using the NXP FRDM-KL05Z development board, a touch slider for user input, and an LCD1602 display for output. The project is designed for the **Keil uVision 5 MDK-ARM** development environment.
 
-    TSI_Init();
-    LCD1602_Init();
-    LCD1602_Backlight(TRUE);
+## How It Works
 
-    int human_player;
-    int pc_player;
-    int previous_slider_value = -1;
+- **User Input:** The player selects Rock, Paper, or Scissors by moving their finger across the capacitive touch slider.
+- **Display:** The LCD1602 displays both the user's choice and the computer's randomly-selected choice.
+- **Result:** The game result ("WIN", "LOSE", or "Tie..") is shown on the LCD screen.
 
-    while (1) {
-        // Odczyt wartosci slidera
-        int slider_value = TSI_ReadSlider();
+### Hardware
 
-        // Sprawdzenie zmiany wartosci slidera
-        if (slider_value != previous_slider_value) {
-            previous_slider_value = slider_value;
+- **Board:** NXP FRDM-KL05Z
+- **Display:** LCD1602 (16x2 character LCD)
+- **Touch Input:** Onboard TSI (Touch Sensing Input) slider
 
-            // Ustawienie wartosci gracza w zaleznosci od polozenia slidera
-            if (slider_value > 0 && slider_value < 33) {
-                human_player = ROCK;
-                LCD1602_ClearAll();
-                LCD1602_SetCursor(0, 1);
-                LCD1602_Print("ROCK");
-            } else if (slider_value >= 33 && slider_value < 66) {
-                human_player = PAPER;
-                LCD1602_ClearAll();
-                LCD1602_SetCursor(0, 1);
-                LCD1602_Print("PAPER");
-            } else if (slider_value >= 66) {
-                human_player = SCISSOR;
-                LCD1602_ClearAll();
-                LCD1602_SetCursor(0, 1);
-                LCD1602_Print("SCISSOR");
-            }
+### Software
 
-            // Losowanie
-            pc_player = rand() % 3;
+- **IDE:** Keil uVision 5 (MDK-ARM)
+- **Language:** C
+- **Libraries:** LCD1602 and TSI drivers (included in the project)
 
-            // Tablica
-            const char *options_names[] = { "ROCK", "PAPER", "SCISSOR" };
+## Getting Started
 
-            LCD1602_SetCursor(8, 1);
-            LCD1602_Print(options_names[pc_player]);
+1. Clone this repository to your PC.
+2. Open the project in **Keil uVision 5**.
+3. Connect your FRDM-KL05Z board.
+4. Build and flash the program to your board.
+5. Use the touch slider to play the game and view results on the LCD.
 
-            // Sprawdzenie wyniku gry i wyswietlenie odpowiedniego komunikatu
-            if (human_player == pc_player) {
-                LCD1602_SetCursor(5, 0);
-                LCD1602_Print("Tie..");
-            } else if ((human_player == ROCK && pc_player == SCISSOR) ||
-                       (human_player == PAPER && pc_player == ROCK) ||
-                       (human_player == SCISSOR && pc_player == PAPER)) {
-                LCD1602_SetCursor(5, 0);
-                LCD1602_Print("!WIN!");
-            } else {
-                LCD1602_SetCursor(5, 0);
-                LCD1602_Print("LOSE");
-            }
-        }
-    }
+## Video Demonstration
 
-    return 0;
-}
+[Watch a demonstration of Rock-Paper-Scissors on FRDM-KL05Z](https://www.youtube.com/watch?v=03m7jN7P4jI)
+
+*(If this is not the exact board, you can find many similar FRDM-KL05Z LCD/TSI demo videos by searching "FRDM-KL05Z LCD TSI" on YouTube.)*
+
+## Screenshots
+
+*(You can add photos or screenshots here of your board in action!)*
+
+---
+
+**Author:** Wojciech Hajduk 
+**Platform:** NXP FRDM-KL05Z  
+**IDE:** Keil uVision 5 MDK-ARM

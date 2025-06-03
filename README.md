@@ -20,10 +20,6 @@ This project implements a simple "Rock, Paper, Scissors" game using the NXP FRDM
 - **Language:** C
 - **Libraries:** LCD1602 and TSI drivers (included in the project)
 
-## Video Demonstration
-
-[Watch a Demo](https://www.youtube.com/watch?v=03m7jN7P4jI)
-
 ---
 
 **Author:** Wojciech Hajduk 

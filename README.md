@@ -20,23 +20,9 @@ This project implements a simple "Rock, Paper, Scissors" game using the NXP FRDM
 - **Language:** C
 - **Libraries:** LCD1602 and TSI drivers (included in the project)
 
-## Getting Started
-
-1. Clone this repository to your PC.
-2. Open the project in **Keil uVision 5**.
-3. Connect your FRDM-KL05Z board.
-4. Build and flash the program to your board.
-5. Use the touch slider to play the game and view results on the LCD.
-
 ## Video Demonstration
 
-[Watch a demonstration of Rock-Paper-Scissors on FRDM-KL05Z](https://www.youtube.com/watch?v=03m7jN7P4jI)
-
-*(If this is not the exact board, you can find many similar FRDM-KL05Z LCD/TSI demo videos by searching "FRDM-KL05Z LCD TSI" on YouTube.)*
-
-## Screenshots
-
-*(You can add photos or screenshots here of your board in action!)*
+[Watch a Demo](https://www.youtube.com/watch?v=03m7jN7P4jI)
 
 ---
 
